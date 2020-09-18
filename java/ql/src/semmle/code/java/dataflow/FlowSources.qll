@@ -17,6 +17,8 @@ import semmle.code.java.frameworks.android.WebView
 import semmle.code.java.frameworks.JaxWS
 import semmle.code.java.frameworks.javase.WebSocket
 import semmle.code.java.frameworks.android.Intent
+import semmle.code.java.frameworks.play.PlayController
+import semmle.code.java.frameworks.play.PlayHTTPRequestHeader
 import semmle.code.java.frameworks.spring.SpringWeb
 import semmle.code.java.frameworks.spring.SpringController
 import semmle.code.java.frameworks.spring.SpringWebClient
@@ -106,20 +108,16 @@ private class MessageBodyReaderParameterSource extends RemoteFlowSource {
   override string getSourceType() { result = "MessageBodyReader parameter" }
 }
 
-private class SpringMultipartRequestSource extends RemoteFlowSource {
-  SpringMultipartRequestSource() {
-    exists(MethodAccess ma, Method m |
-      ma = this.asExpr() and
-      m = ma.getMethod() and
-      m
-          .getDeclaringType()
-          .getASourceSupertype*()
-          .hasQualifiedName("org.springframework.web.multipart", "MultipartRequest") and
-      m.getName().matches("get%")
+class PlayParameterSource extends RemoteFlowSource {
+  PlayParameterSource() {
+    exists(PlayActionQueryParameter p | p = this.asParameter())
+    or
+    exists(PlayHTTPRequestHeaderMethods m |
+      m.hasName("getQueryString") and m.getAParameter() = this.asParameter()
     )
   }
 
-  override string getSourceType() { result = "Spring MultipartRequest getter" }
+  override string getSourceType() { result = "Play Query Parameters" }
 }
 
 private class SpringMultipartFileSource extends RemoteFlowSource {
@@ -245,6 +243,7 @@ private class RemoteTaintedMethod extends Method {
     this instanceof HttpServletRequestGetRequestURIMethod or
     this instanceof HttpServletRequestGetRequestURLMethod or
     this instanceof HttpServletRequestGetRemoteUserMethod or
+    this instanceof PlayRequestGetMethod or
     this instanceof SpringWebRequestGetMethod or
     this instanceof SpringRestTemplateResponseEntityMethod or
     this instanceof ServletRequestGetBodyMethod or
@@ -261,6 +260,13 @@ private class RemoteTaintedMethod extends Method {
     this instanceof XmlAttrSetGetMethod or
     // The current URL in a browser may be untrusted or uncontrolled.
     this instanceof WebViewGetUrlMethod
+  }
+}
+
+private class PlayRequestGetMethod extends PlayHTTPRequestHeaderMethods {
+  PlayRequestGetMethod() {
+    this.hasName("Header") or
+    this.hasName("getQueryString")
   }
 }
 
