@@ -187,6 +187,39 @@
 | aliasing.cpp:92:7:92:8 | m1 |
 | aliasing.cpp:98:3:98:3 | s |
 | aliasing.cpp:98:5:98:6 | m1 |
+| aliasing.cpp:106:3:106:5 | * ... |
+| aliasing.cpp:111:15:111:19 | & ... |
+| aliasing.cpp:111:16:111:16 | s |
+| aliasing.cpp:121:15:121:16 | xs |
+| aliasing.cpp:126:15:126:20 | ... - ... |
+| aliasing.cpp:131:15:131:16 | xs |
+| aliasing.cpp:136:15:136:17 | + ... |
+| aliasing.cpp:141:15:141:15 | s |
+| aliasing.cpp:141:17:141:20 | data |
+| aliasing.cpp:147:15:147:22 | & ... |
+| aliasing.cpp:147:16:147:19 | access to array |
+| aliasing.cpp:158:15:158:15 | s |
+| aliasing.cpp:158:17:158:20 | data |
+| aliasing.cpp:164:15:164:15 | s |
+| aliasing.cpp:164:17:164:20 | data |
+| aliasing.cpp:175:15:175:22 | & ... |
+| aliasing.cpp:175:16:175:17 | s2 |
+| aliasing.cpp:175:19:175:19 | s |
+| aliasing.cpp:181:15:181:22 | & ... |
+| aliasing.cpp:181:16:181:17 | s2 |
+| aliasing.cpp:181:19:181:19 | s |
+| aliasing.cpp:187:15:187:22 | & ... |
+| aliasing.cpp:187:16:187:17 | s2 |
+| aliasing.cpp:187:19:187:19 | s |
+| aliasing.cpp:194:15:194:22 | & ... |
+| aliasing.cpp:194:16:194:17 | s2 |
+| aliasing.cpp:194:19:194:19 | s |
+| aliasing.cpp:200:15:200:24 | & ... |
+| aliasing.cpp:200:16:200:18 | ps2 |
+| aliasing.cpp:200:21:200:21 | s |
+| aliasing.cpp:205:15:205:24 | & ... |
+| aliasing.cpp:205:16:205:18 | ps2 |
+| aliasing.cpp:205:21:205:21 | s |
 | arrays.cpp:6:3:6:8 | access to array |
 | arrays.cpp:15:3:15:10 | * ... |
 | arrays.cpp:36:3:36:3 | o |
@@ -311,28 +344,28 @@
 | complex.cpp:11:22:11:23 | this |
 | complex.cpp:12:22:12:23 | b_ |
 | complex.cpp:12:22:12:23 | this |
-| complex.cpp:51:8:51:8 | b |
-| complex.cpp:51:10:51:14 | inner |
-| complex.cpp:51:16:51:16 | f |
-| complex.cpp:52:8:52:8 | b |
-| complex.cpp:52:10:52:14 | inner |
-| complex.cpp:52:16:52:16 | f |
-| complex.cpp:62:3:62:4 | b1 |
-| complex.cpp:62:6:62:10 | inner |
-| complex.cpp:62:12:62:12 | f |
-| complex.cpp:63:3:63:4 | b2 |
-| complex.cpp:63:6:63:10 | inner |
-| complex.cpp:63:12:63:12 | f |
-| complex.cpp:64:3:64:4 | b3 |
-| complex.cpp:64:6:64:10 | inner |
-| complex.cpp:64:12:64:12 | f |
-| complex.cpp:65:3:65:4 | b3 |
-| complex.cpp:65:6:65:10 | inner |
-| complex.cpp:65:12:65:12 | f |
-| complex.cpp:68:7:68:8 | b1 |
-| complex.cpp:71:7:71:8 | b2 |
-| complex.cpp:74:7:74:8 | b3 |
-| complex.cpp:77:7:77:8 | b4 |
+| complex.cpp:42:8:42:8 | b |
+| complex.cpp:42:10:42:14 | inner |
+| complex.cpp:42:16:42:16 | f |
+| complex.cpp:43:8:43:8 | b |
+| complex.cpp:43:10:43:14 | inner |
+| complex.cpp:43:16:43:16 | f |
+| complex.cpp:53:3:53:4 | b1 |
+| complex.cpp:53:6:53:10 | inner |
+| complex.cpp:53:12:53:12 | f |
+| complex.cpp:54:3:54:4 | b2 |
+| complex.cpp:54:6:54:10 | inner |
+| complex.cpp:54:12:54:12 | f |
+| complex.cpp:55:3:55:4 | b3 |
+| complex.cpp:55:6:55:10 | inner |
+| complex.cpp:55:12:55:12 | f |
+| complex.cpp:56:3:56:4 | b3 |
+| complex.cpp:56:6:56:10 | inner |
+| complex.cpp:56:12:56:12 | f |
+| complex.cpp:59:7:59:8 | b1 |
+| complex.cpp:62:7:62:8 | b2 |
+| complex.cpp:65:7:65:8 | b3 |
+| complex.cpp:68:7:68:8 | b4 |
 | constructors.cpp:20:24:20:25 | a_ |
 | constructors.cpp:20:24:20:25 | this |
 | constructors.cpp:21:24:21:25 | b_ |

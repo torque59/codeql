@@ -119,13 +119,31 @@ class PlayParameterSource extends RemoteFlowSource {
 
   override string getSourceType() { result = "Play Query Parameters" }
 }
+private class SpringMultipartRequestSource extends RemoteFlowSource {
+  SpringMultipartRequestSource() {
+    exists(MethodAccess ma, Method m |
+      ma = this.asExpr() and
+      m = ma.getMethod() and
+      m
+          .getDeclaringType()
+          .getASourceSupertype*()
+          .hasQualifiedName("org.springframework.web.multipart", "MultipartRequest") and
+      m.getName().matches("get%")
+    )
+  }
+
+  override string getSourceType() { result = "Spring MultipartRequest getter" }
+}
 
 private class SpringMultipartFileSource extends RemoteFlowSource {
   SpringMultipartFileSource() {
     exists(MethodAccess ma, Method m |
       ma = this.asExpr() and
       m = ma.getMethod() and
-      m.getDeclaringType().hasQualifiedName("org.springframework.web.multipart", "MultipartFile") and
+      m
+          .getDeclaringType()
+          .getASourceSupertype*()
+          .hasQualifiedName("org.springframework.web.multipart", "MultipartFile") and
       m.getName().matches("get%")
     )
   }
