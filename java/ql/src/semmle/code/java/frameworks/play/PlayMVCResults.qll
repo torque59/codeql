@@ -29,7 +29,7 @@ class PlayHTTPResultsMethods extends Method {
   /**
    * Gets all references to play.mvc.Results redirect method
    */
-  MethodAccess redirect() {
+  MethodAccess getARedirectAccess() {
     exists(MethodAccess ma | ma = this.getAReference() and this.hasName("redirect") | result = ma)
   }
 }
